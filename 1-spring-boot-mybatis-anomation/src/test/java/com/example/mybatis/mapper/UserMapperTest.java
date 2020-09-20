@@ -1,6 +1,6 @@
-package com.example.mybatis.demo.mapper;
+package com.example.mybatis.mapper;
 
-import com.example.mybatis.demo.entity.UserEntity;
+import com.example.mybatis.entity.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,4 +64,3 @@ public class UserMapperTest {
         }
     }
 }
-

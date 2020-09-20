@@ -1,6 +1,6 @@
-package com.example.mybatis.demo.mapper;
+package com.example.mybatis.mapper;
 
-import com.example.mybatis.demo.entity.UserEntity;
+import com.example.mybatis.entity.UserEntity;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
