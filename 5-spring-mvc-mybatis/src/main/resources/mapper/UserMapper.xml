@@ -1,16 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.spring.mapper.UserMapper">
     <resultMap id="userMap" type="com.spring.model.User">
         <id property="id" column="id" javaType="int"></id>
-        <result property="name" column="name" javaType="type"></result>
-        <result property="phone" column="phone" javaType="type"></result>
-        <result property="telephone" column="telephone" javaType="type"></result>
+        <result property="name" column="name" javaType="String"></result>
+        <result property="phone" column="phone" javaType="String"></result>
+        <result property="telephone" column="telephone" javaType="String"></result>
     </resultMap>
 
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
-        insert into user(username, phone, telephone, address)
-        values(#{name}, #{password}, #{sex}, #{address})
+        insert into user(name, phone, telephone, address)
+        values(#{name}, #{phone}, #{telephone}, #{address})
     </insert>
 
     <update id="updateUser" parameterType="User">
@@ -21,11 +23,11 @@
         delete from user where id=#{id}
     </delete>
 
-    <select id="findUser" parameterType="int" resultType="userMap">
+    <select id="findUser" parameterType="int" resultMap="userMap">
         select * from user where id=#{id}
     </select>
 
-    <select id="findAllUsers" resultType="userMap">
+    <select id="findAllUsers" resultMap="userMap">
         select * from user
     </select>
 </mapper>

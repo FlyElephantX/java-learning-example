@@ -32,16 +32,79 @@ public class UserController {
         return "register";
     }
 
+//
+
+//    @ResponseBody
+//    @GetMapping("/users")
+//    public ResultBean<List<User>> findAllUsers() {
+//        List<User> users = userService.findAllUsers();
+//        ResultBean<List<User>> res = new ResultBean<>(users);
+//        return res;
+//    }
+//
+//    @ResponseBody
+//    @GetMapping("/insert")
+//    public ResultBean insertUser() {
+//        User user = new User();
+//        SimpleDateFormat format = new SimpleDateFormat();// 格式化时间
+//        format.applyPattern("yyyy-MM-dd HH:mm:ss a");// a为am/pm的标记
+//        Date date = new Date();// 获取当前时间
+//        user.name = "elephant-" + format.format(date);
+//        user.phone = "123456789";
+//        user.telephone = "110";
+//        user.address = "中国";
+//        int result = userService.insertUser(user);
+//        if (result > 0) {
+//            return new ResultBean();
+//        } else {
+//            return new ResultBean("新增失败");
+//        }
+//    }
+//
+//    @ResponseBody
+//    @GetMapping("/users/{id}")
+//    public ResultBean<User> findUser(@PathVariable Integer id) {
+//        User user = userService.findUser(id);
+//        return new ResultBean<>(user);
+//    }
+//
+//    @ResponseBody
+//    @GetMapping("/update/{id}")
+//    public ResultBean updateUser(@PathVariable Integer id) {
+//        User user = userService.findUser(id);
+//        user.name = user.name + "---update";
+//        user.phone = user.phone + "---update";
+//        user.telephone = user.telephone + "---update";
+//        user.address = user.address + "---update";
+//        int result = userService.updateUser(user);
+//        if (result > 0) {
+//            return new ResultBean();
+//        } else {
+//            return new ResultBean("修改成功");
+//        }
+//    }
+//
+//    @ResponseBody
+//    @GetMapping("/delete/{id}")
+//    public ResultBean deleteUser(@PathVariable Integer id) {
+//        int result = userService.deleteUser(id);
+//        if (result > 0) {
+//            return new ResultBean();
+//        } else {
+//            return new ResultBean("删除失败");
+//        }
+//    }
+
     @ResponseBody
     @GetMapping("/users")
-    public ResultBean<List<User>> findAllUsers() {
+    public List<User> findAllUsers() {
         List<User> users = userService.findAllUsers();
-        return new ResultBean<>(users);
+        return users;
     }
 
     @ResponseBody
     @GetMapping("/insert")
-    public ResultBean insertUser() {
+    public String insertUser() {
         User user = new User();
         SimpleDateFormat format = new SimpleDateFormat();// 格式化时间
         format.applyPattern("yyyy-MM-dd HH:mm:ss a");// a为am/pm的标记
@@ -52,22 +115,22 @@ public class UserController {
         user.address = "中国";
         int result = userService.insertUser(user);
         if (result > 0) {
-            return new ResultBean();
+            return "新增成功";
         } else {
-            return new ResultBean("新增失败");
+            return "新增失败";
         }
     }
 
     @ResponseBody
     @GetMapping("/users/{id}")
-    public ResultBean<User> findUser(@PathVariable Integer id) {
+    public User findUser(@PathVariable Integer id) {
         User user = userService.findUser(id);
-        return new ResultBean<>(user);
+        return user;
     }
 
     @ResponseBody
     @GetMapping("/update/{id}")
-    public ResultBean updateUser(@PathVariable Integer id) {
+    public String updateUser(@PathVariable Integer id) {
         User user = userService.findUser(id);
         user.name = user.name + "---update";
         user.phone = user.phone + "---update";
@@ -75,20 +138,20 @@ public class UserController {
         user.address = user.address + "---update";
         int result = userService.updateUser(user);
         if (result > 0) {
-            return new ResultBean();
+            return "修改成功";
         } else {
-            return new ResultBean("修改成功");
+            return "修改失败";
         }
     }
 
     @ResponseBody
     @GetMapping("/delete/{id}")
-    public ResultBean deleteUser(@PathVariable Integer id) {
+    public String deleteUser(@PathVariable Integer id) {
         int result = userService.deleteUser(id);
         if (result > 0) {
-            return new ResultBean();
+            return "删除成功";
         } else {
-            return new ResultBean("删除失败");
+            return "删除失败";
         }
     }
 
