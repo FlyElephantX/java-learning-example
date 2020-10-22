@@ -44,4 +44,9 @@ class RabbitmqApplicationTests {
         rabbitTemplate.convertAndSend("direct.exchange", "direct.queue", message);
     }
 
+    @Test
+    public void fanoutProducer() {
+        rabbitTemplate.convertAndSend("fanout.exchange", "", message);
+    }
+
 }
