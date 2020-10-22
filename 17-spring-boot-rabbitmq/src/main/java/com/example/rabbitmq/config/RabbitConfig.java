@@ -21,17 +21,17 @@ public class RabbitConfig {
     }
 
     @Bean
-    TopicExchange topicExchange() {
+    TopicExchange topicExchange1() {
         return new TopicExchange("topicExchange");
     }
 
     @Bean
     public Binding bindingFirst() {
-        return BindingBuilder.bind(queueFirst()).to(topicExchange()).with("routingKey.first");
+        return BindingBuilder.bind(queueFirst()).to(topicExchange1()).with("routingKey.first");
     }
 
     @Bean
     public Binding bindingTwo() {
-        return BindingBuilder.bind(queueTwo()).to(topicExchange()).with("routingKey.two");
+        return BindingBuilder.bind(queueTwo()).to(topicExchange1()).with("routingKey.two");
     }
 }

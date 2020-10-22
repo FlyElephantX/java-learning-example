@@ -49,4 +49,22 @@ class RabbitmqApplicationTests {
         rabbitTemplate.convertAndSend("fanout.exchange", "", message);
     }
 
+    @Test
+    public void topicProducer() {
+        rabbitTemplate.convertAndSend("topic.exchange", "routing-key", message);
+    }
+
+    @Test
+    public void headersProducer() {
+        rabbitTemplate.convertAndSend("headers.exchange", "", message,
+                m -> {
+                    m.getMessageProperties().getHeaders().put("headers-key", null);
+                    return m;
+                });
+    }
+
+    @Test
+    public void annomationProducer() {
+        rabbitTemplate.convertAndSend("topic.exchange", "routing", message);
+    }
 }
