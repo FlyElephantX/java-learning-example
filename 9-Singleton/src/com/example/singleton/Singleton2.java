@@ -2,7 +2,8 @@ package com.example.singleton;
 
 public class Singleton2 {
 
-    private Singleton2() { }
+    private Singleton2() {
+    }
 
     private static volatile Singleton2 instance;
 

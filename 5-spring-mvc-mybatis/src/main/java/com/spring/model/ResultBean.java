@@ -8,10 +8,10 @@ public class ResultBean<T> implements Serializable {
      */
     private static final int SUCCESS = 0; // 成功
     private static final int CHECK_FAIL = 1; // 失败
-    private static final int UNKNOWN_EXCEPTION  = -99; // 抛出异常
+    private static final int UNKNOWN_EXCEPTION = -99; // 抛出异常
     /**
      * 接口返回状态码，0表示成功，其他的看对应定义
-     *
+     * <p>
      * 推荐：
      * 0  ： 表示成功
      * >0 :  表示已知的异常（需要在调用的地方单独处理）
@@ -38,6 +38,7 @@ public class ResultBean<T> implements Serializable {
 
     /**
      * 请求数据正确，返回调用
+     *
      * @param data 返回数据
      */
     public ResultBean(T data) {
@@ -47,6 +48,7 @@ public class ResultBean<T> implements Serializable {
 
     /**
      * 请求出错，返回调用
+     *
      * @param msg 错误提醒语句
      */
     public ResultBean(String msg) {
@@ -56,6 +58,7 @@ public class ResultBean<T> implements Serializable {
 
     /**
      * 请求异常，返回调用
+     *
      * @param e 异常
      */
     public ResultBean(Throwable e) {

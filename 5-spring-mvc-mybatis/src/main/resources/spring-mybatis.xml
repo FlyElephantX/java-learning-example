@@ -27,7 +27,7 @@
           p:dataSource-ref="dataSource"
           p:configLocation="classpath:mybatis-config.xml"
           p:mapperLocations="classpath:com/spring/mapper/**/*.xml"
-          />
+    />
 
     <!--
         spring与mybatis整合配置，动态实现 mapper 接口，注入到 spring 容器中

@@ -11,7 +11,7 @@ public class Main {
 //        user.test();
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
-        User user = (User)applicationContext.getBean("user");
+        User user = (User) applicationContext.getBean("user");
         user.test();
     }
 }

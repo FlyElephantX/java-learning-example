@@ -2,7 +2,8 @@ package com.example.singleton;
 
 public class Singleton1 {
 
-    private Singleton1() { }
+    private Singleton1() {
+    }
 
     private static Singleton1 instance = new Singleton1();
 

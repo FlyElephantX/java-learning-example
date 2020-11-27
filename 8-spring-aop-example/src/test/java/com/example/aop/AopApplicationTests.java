@@ -19,7 +19,7 @@ class AopApplicationTests {
     @Test
     public void testIntroduction() {
         userService.loginIntroduction();
-        DoSthService doSthService = (DoSthService)userService;
+        DoSthService doSthService = (DoSthService) userService;
         doSthService.doSth();
     }
 

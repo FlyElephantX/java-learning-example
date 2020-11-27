@@ -28,6 +28,7 @@ public class MailService {
 
     /**
      * 发送文本邮件
+     *
      * @param toAddr
      * @param title
      * @param content
@@ -51,6 +52,7 @@ public class MailService {
 
     /**
      * 发送html邮件
+     *
      * @param toAddr
      * @param title
      * @param content
@@ -77,12 +79,13 @@ public class MailService {
 
     /**
      * 发送带附件的邮件
+     *
      * @param toAddr
      * @param title
      * @param content
      * @param filePath
      */
-    public void sendAttachmentsMail(String toAddr, String title, String content, String filePath){
+    public void sendAttachmentsMail(String toAddr, String title, String content, String filePath) {
         MimeMessage message = mailSender.createMimeMessage();
 
         try {
@@ -107,13 +110,14 @@ public class MailService {
 
     /**
      * 发送正文中有静态资源（图片）的邮件
+     *
      * @param toAddr
      * @param title
      * @param content
      * @param rscPath
      * @param rscId
      */
-    public void sendInlineResourceMail(String toAddr, String title, String content, String rscPath, String rscId){
+    public void sendInlineResourceMail(String toAddr, String title, String content, String rscPath, String rscId) {
         MimeMessage message = mailSender.createMimeMessage();
 
         try {

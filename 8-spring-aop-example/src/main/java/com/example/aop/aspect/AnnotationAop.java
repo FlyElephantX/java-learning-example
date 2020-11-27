@@ -17,7 +17,8 @@ import java.lang.reflect.Method;
 public class AnnotationAop {
 
     @Pointcut(value = "@annotation(log)", argNames = "log")
-    public void pointCut(Log log) {}
+    public void pointCut(Log log) {
+    }
 
     @Around(value = "pointCut(log)", argNames = "joinPoint,log")
     public Object around(ProceedingJoinPoint joinPoint, Log log) throws Throwable {
@@ -34,7 +35,7 @@ public class AnnotationAop {
 
     @Before("@annotation(com.example.aop.annotation.Log)")
     public void before(JoinPoint joinPoint) {
-        MethodSignature signature = (MethodSignature)joinPoint.getSignature();
+        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         Log log = method.getAnnotation(Log.class);
         System.out.println("注解式拦截:" + log.value());

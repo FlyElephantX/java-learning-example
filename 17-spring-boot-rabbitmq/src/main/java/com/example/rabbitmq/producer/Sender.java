@@ -28,7 +28,7 @@ public class Sender implements RabbitTemplate.ConfirmCallback, RabbitTemplate.Re
         System.out.println(message.getMessageProperties().getCorrelationId() + " 发送失败");
     }
 
-    public void send(String msg){
+    public void send(String msg) {
         CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
         System.out.println("开始发送消息:" + msg.toLowerCase());
         String response = rabbitTemplate.convertSendAndReceive("topicExchange", "routingKey.first", msg, correlationId).toString();

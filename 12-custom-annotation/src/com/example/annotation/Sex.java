@@ -14,6 +14,7 @@ public @interface Sex {
         Female("女");
 
         private String genderStr;
+
         private GenderType(String arg) {
             this.genderStr = arg;
         }
